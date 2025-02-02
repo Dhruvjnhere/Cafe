@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+    font-family: "Lexend Giga", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+  
+    margin: 0;
+    padding: 0;
+    background-color: rgb(224, 221, 221);
+    text-align: center;
+    font-size: large;
+}
+
+/* Header */
+.header {
+    background-color: #c02105;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+}
+
+.menu-icon {
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Slider */
+.slider-container {
+    width: 100%;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    size: cover;
+}
+
+.slides {
+    
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+/* Dots */
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #c02105;
+}
+
+/* Grid Layout */
+.grid-container {
+    gap: 50px;
+    padding: px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    border: rgb(255, 255, 255) solid 2px;
+    image-orientation: from-image;
+    background-color: silver;
+    size-adjust: cover;
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .slider-container {
+        width: 100%;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        background-size: 100px;
+    }
+}
