@@ -5,24 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAFE FOODS</title>
     <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header" id="text">Cafe Foods<span class="menu-icon"></span></div>
-    <div class="slider" id="text">Food 1</div>
-    <div class="dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+    <div class="header">CAFE FOODS <span class="menu-icon">&#9776;</span></div>
+    
+    <div class="slider-container">
+        <div class="slides">
+            <img class="slide" src="/images/slide1.jpeg" alt="Food 1">
+            <img class="slide" src="/images/slide2.jpg" alt="Food 2">
+            <img class="slide" src="/images/slide3.webp" alt="Food 3">
+        </div>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
     </div>
-    <div class="grid-container">
-        <div class="shop" id="text">Shop1</div>
-        <div class="shop" id="text">Shop2</div>
-        <div class="shop" id="text">Shop3</div>
-        <div class="shop" id="text">Shop4</div>
-        <div class="shop" id="text">Shop5</div>
-        <div class="shop" id="text">Shop6</div>
-        <div class="shop" id="text">Shop7</div>
-        <div class="shop" id="text">Shop8</div>
+    <div>
+        <p class="body">Shops</p>
+        <img src="/images/shop1.png" alt="Shop 1"  class="grid-container">
+        <img src="/images/shop2.jpg" alt="Shop 2" class="grid-container">
+        <img src="/images/shop3.jpg" alt="Shop 3" class="grid-container">
+        <img src="/images/shop4.jpg" alt="Shop 4" class="grid-container">
     </div>
+    
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 3000);
+        }
+    </script>
 </body>
 </html>
