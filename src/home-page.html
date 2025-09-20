@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAFE FOODS</title>
-    <link rel="stylesheet" href="/css/homepage.css">
+    <title>Brew & Bean Coffee Shop</title>
+    <link rel="stylesheet" href="../css/homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">CAFE FOODS <span class="menu-icon">&#9776;</span></div>
+    <div class="header">
+        BREW & BEAN 
+        <nav class="nav-menu">
+            <a href="home-page.html">Home</a>
+            <a href="Login.html">Login</a>
+            <a href="Signup.html">Sign Up</a>
+        </nav>
+        <span class="menu-icon">&#9776;</span>
+    </div>
+    
+    <div class="welcome-section">
+        <h1>Welcome to Brew & Bean Coffee Shop</h1>
+        <p>Experience the finest coffee blends and artisanal brewing techniques in a cozy atmosphere.</p>
+    </div>
     
     <div class="slider-container">
         <div class="slides">
-            <img class="slide" src="/images/slide1.jpeg" alt="Food 1">
-            <img class="slide" src="/images/slide2.jpg" alt="Food 2">
-            <img class="slide" src="/images/slide3.webp" alt="Food 3">
+            <img class="slide" src="../images/slide1.jpeg" alt="Coffee 1">
+            <img class="slide" src="../images/slide2.jpg" alt="Coffee 2">
+            <img class="slide" src="../images/slide3.webp" alt="Coffee 3">
         </div>
         <div class="dots">
             <span class="dot" onclick="currentSlide(0)"></span>
@@ -24,12 +37,34 @@
             <span class="dot" onclick="currentSlide(2)"></span>
         </div>
     </div>
-    <div>
-        <p class="body">Shops</p>
-        <img src="/images/shop1.png" alt="Shop 1"  class="grid-container">
-        <img src="/images/shop2.jpg" alt="Shop 2" class="grid-container">
-        <img src="/images/shop3.jpg" alt="Shop 3" class="grid-container">
-        <img src="/images/shop4.jpg" alt="Shop 4" class="grid-container">
+    <div class="menu-section">
+        <h2 class="menu-title">Our Coffee Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="../images/shop1.png" alt="Espresso" class="menu-image">
+                <h3>Classic Espresso</h3>
+                <p>Rich, bold espresso shot</p>
+                <span class="price">$2.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="../images/shop2.jpg" alt="Cappuccino" class="menu-image">
+                <h3>Cappuccino</h3>
+                <p>Espresso with steamed milk foam</p>
+                <span class="price">$4.25</span>
+            </div>
+            <div class="menu-item">
+                <img src="../images/shop3.jpg" alt="Latte" class="menu-image">
+                <h3>Caffe Latte</h3>
+                <p>Smooth espresso with steamed milk</p>
+                <span class="price">$4.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="../images/shop4.jpg" alt="Americano" class="menu-image">
+                <h3>Americano</h3>
+                <p>Espresso with hot water</p>
+                <span class="price">$3.75</span>
+            </div>
+        </div>
     </div>
     
 
