@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Brew & Bean Coffee Shop</title>
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        BREW & BEAN 
+        <nav class="nav-menu">
+            <a href="home-page.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+            <a href="Login.html">Login</a>
+            <a href="Signup.html">Sign Up</a>
+        </nav>
+        <span class="menu-icon">&#9776;</span>
+    </div>
+    
+    <div class="cart-container">
+        <h1>Your Order</h1>
+        
+        <div id="cart-content">
+            <div id="cart-items">
+                <!-- Cart items will be populated here -->
+            </div>
+            
+            <div id="cart-summary">
+                <div class="summary-section">
+                    <h3>Order Summary</h3>
+                    <div class="summary-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Tax (8.5%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="order-options">
+                    <h3>Order Type</h3>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="orderType" value="pickup" checked>
+                            <span>Pickup</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="orderType" value="delivery">
+                            <span>Delivery (+$2.50)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="customer-info">
+                    <h3>Customer Information</h3>
+                    <form id="order-form">
+                        <input type="text" id="customer-name" placeholder="Your Name" required>
+                        <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+                        <input type="email" id="customer-email" placeholder="Email Address" required>
+                        <textarea id="special-instructions" placeholder="Special Instructions (optional)"></textarea>
+                    </form>
+                </div>
+                
+                <button id="place-order-btn" class="place-order-btn">Place Order</button>
+                <button id="clear-cart-btn" class="clear-cart-btn">Clear Cart</button>
+            </div>
+        </div>
+        
+        <div id="empty-cart" style="display: none;">
+            <div class="empty-cart-message">
+                <h2>Your cart is empty</h2>
+                <p>Add some delicious items from our menu!</p>
+                <a href="menu.html" class="continue-shopping-btn">View Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Order Confirmed!</h2>
+            <div id="order-details"></div>
+            <p>Thank you for your order. We'll have it ready for you soon!</p>
+            <button onclick="closeModal()" class="modal-btn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="../js/cart.js"></script>
+</body>
+</html>
