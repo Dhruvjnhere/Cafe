@@ -189,6 +189,23 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
     displayCart();
     
+    // Mobile menu toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (menuIcon && navMenu) {
+        menuIcon.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuIcon.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+    
     // Add event listeners for order type change
     document.querySelectorAll('input[name="orderType"]').forEach(radio => {
         radio.addEventListener('change', updateOrderSummary);
