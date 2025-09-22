@@ -1,0 +1,90 @@
+/* Import styles from homepage.css */
+@import url('./homepage.css');
+
+/* Menu specific styles */
+.menu-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+}
+
+.menu-header h1 {
+    color: #c02105;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-family: "Lexend Giga", serif;
+}
+
+.menu-header p {
+    color: #666;
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Category filters */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background-color: #fff;
+    color: #c02105;
+    border: 2px solid #c02105;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background-color: #c02105;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Menu section adjustments */
+.menu-section {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    min-height: 60vh;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Hide items when filtering */
+.menu-item.hidden {
+    display: none;
+}
+
+/* Responsive design for menu */
+@media (max-width: 768px) {
+    .menu-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-btn {
+        width: 200px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

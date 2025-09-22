@@ -44,6 +44,13 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+#cart-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+}
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
@@ -53,6 +60,28 @@ body {
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #c02105;
+        flex-direction: column;
+        gap: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
     }
     
     .menu-icon {
@@ -189,6 +218,83 @@ body {
     font-weight: bold;
     color: #c02105;
     margin-top: 10px;
+}
+
+/* Item Controls */
+.item-controls {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quantity-btn {
+    background-color: #c02105;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #a01e04;
+}
+
+.quantity {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.add-to-cart-btn {
+    background-color: #c02105;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 5px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #a01e04;
+    transform: translateY(-2px);
+}
+
+/* Cart Notification */
+.cart-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-weight: bold;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 

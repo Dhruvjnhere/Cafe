@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Bean Coffee Shop</title>
-    <link rel="stylesheet" href="../css/homepage.css">
+    <title>Menu - Brew & Bean Coffee Shop</title>
+    <link rel="stylesheet" href="../css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
@@ -22,27 +22,21 @@
         <span class="menu-icon">&#9776;</span>
     </div>
     
-    <div class="welcome-section">
-        <h1>Welcome to Brew & Bean Coffee Shop</h1>
-        <p>Experience the finest coffee blends and artisanal brewing techniques in a cozy atmosphere.</p>
+    <div class="menu-header">
+        <h1>Full Menu</h1>
+        <p>Explore our complete selection of delicious coffee and food items</p>
     </div>
     
-    <div class="slider-container">
-        <div class="slides">
-            <img class="slide" src="../images/slide1.jpeg" alt="Coffee 1">
-            <img class="slide" src="../images/slide2.jpg" alt="Coffee 2">
-            <img class="slide" src="../images/slide3.webp" alt="Coffee 3">
-        </div>
-        <div class="dots">
-            <span class="dot" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-        </div>
+    <div class="menu-categories">
+        <button class="category-btn active" onclick="filterMenu('all')">All Items</button>
+        <button class="category-btn" onclick="filterMenu('coffee')">Coffee</button>
+        <button class="category-btn" onclick="filterMenu('food')">Food</button>
     </div>
+    
     <div class="menu-section">
-        <h2 class="menu-title">Our Coffee Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-item" data-id="1">
+        <div class="menu-grid" id="menu-grid">
+            <!-- Coffee Items -->
+            <div class="menu-item" data-id="1" data-category="coffee">
                 <img src="../images/shop1.png" alt="Espresso" class="menu-image">
                 <h3>Classic Espresso</h3>
                 <p>Rich, bold espresso shot</p>
@@ -54,7 +48,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(1)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="2">
+            
+            <div class="menu-item" data-id="2" data-category="coffee">
                 <img src="../images/shop2.jpg" alt="Cappuccino" class="menu-image">
                 <h3>Cappuccino</h3>
                 <p>Espresso with steamed milk foam</p>
@@ -66,7 +61,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(2)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="3">
+            
+            <div class="menu-item" data-id="3" data-category="coffee">
                 <img src="../images/shop3.jpg" alt="Latte" class="menu-image">
                 <h3>Caffe Latte</h3>
                 <p>Smooth espresso with steamed milk</p>
@@ -78,7 +74,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(3)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="4">
+            
+            <div class="menu-item" data-id="4" data-category="coffee">
                 <img src="../images/shop4.jpg" alt="Americano" class="menu-image">
                 <h3>Americano</h3>
                 <p>Espresso with hot water</p>
@@ -90,8 +87,9 @@
                     <button class="add-to-cart-btn" onclick="addToCart(4)">Add to Cart</button>
                 </div>
             </div>
-            <!-- Food Items for College Cafe -->
-            <div class="menu-item" data-id="5">
+            
+            <!-- Food Items -->
+            <div class="menu-item" data-id="5" data-category="food">
                 <img src="../images/shop1.png" alt="Sandwich" class="menu-image">
                 <h3>Club Sandwich</h3>
                 <p>Fresh sandwich with chicken, lettuce, tomato</p>
@@ -103,7 +101,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(5)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="6">
+            
+            <div class="menu-item" data-id="6" data-category="food">
                 <img src="../images/shop2.jpg" alt="Burger" class="menu-image">
                 <h3>College Burger</h3>
                 <p>Juicy beef burger with fries</p>
@@ -115,7 +114,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(6)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="7">
+            
+            <div class="menu-item" data-id="7" data-category="food">
                 <img src="../images/shop3.jpg" alt="Pizza" class="menu-image">
                 <h3>Personal Pizza</h3>
                 <p>Cheese pizza perfect for one</p>
@@ -127,7 +127,8 @@
                     <button class="add-to-cart-btn" onclick="addToCart(7)">Add to Cart</button>
                 </div>
             </div>
-            <div class="menu-item" data-id="8">
+            
+            <div class="menu-item" data-id="8" data-category="food">
                 <img src="../images/shop4.jpg" alt="Salad" class="menu-image">
                 <h3>Fresh Garden Salad</h3>
                 <p>Healthy mix of greens and vegetables</p>
@@ -139,122 +140,63 @@
                     <button class="add-to-cart-btn" onclick="addToCart(8)">Add to Cart</button>
                 </div>
             </div>
+            
+            <!-- Additional Food Items -->
+            <div class="menu-item" data-id="9" data-category="food">
+                <img src="../images/shop1.png" alt="Pasta" class="menu-image">
+                <h3>Pasta Alfredo</h3>
+                <p>Creamy alfredo pasta with chicken</p>
+                <span class="price">$9.25</span>
+                <div class="item-controls">
+                    <button class="quantity-btn" onclick="changeQuantity(9, -1)">-</button>
+                    <span class="quantity" id="qty-9">1</span>
+                    <button class="quantity-btn" onclick="changeQuantity(9, 1)">+</button>
+                    <button class="add-to-cart-btn" onclick="addToCart(9)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-id="10" data-category="food">
+                <img src="../images/shop2.jpg" alt="Wraps" class="menu-image">
+                <h3>Chicken Wrap</h3>
+                <p>Grilled chicken wrap with vegetables</p>
+                <span class="price">$7.75</span>
+                <div class="item-controls">
+                    <button class="quantity-btn" onclick="changeQuantity(10, -1)">-</button>
+                    <span class="quantity" id="qty-10">1</span>
+                    <button class="quantity-btn" onclick="changeQuantity(10, 1)">+</button>
+                    <button class="add-to-cart-btn" onclick="addToCart(10)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Additional Coffee Items -->
+            <div class="menu-item" data-id="11" data-category="coffee">
+                <img src="../images/shop3.jpg" alt="Mocha" class="menu-image">
+                <h3>Cafe Mocha</h3>
+                <p>Espresso with chocolate and steamed milk</p>
+                <span class="price">$4.75</span>
+                <div class="item-controls">
+                    <button class="quantity-btn" onclick="changeQuantity(11, -1)">-</button>
+                    <span class="quantity" id="qty-11">1</span>
+                    <button class="quantity-btn" onclick="changeQuantity(11, 1)">+</button>
+                    <button class="add-to-cart-btn" onclick="addToCart(11)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" data-id="12" data-category="coffee">
+                <img src="../images/shop4.jpg" alt="Iced Coffee" class="menu-image">
+                <h3>Iced Coffee</h3>
+                <p>Cold brew coffee served over ice</p>
+                <span class="price">$3.25</span>
+                <div class="item-controls">
+                    <button class="quantity-btn" onclick="changeQuantity(12, -1)">-</button>
+                    <span class="quantity" id="qty-12">1</span>
+                    <button class="quantity-btn" onclick="changeQuantity(12, 1)">+</button>
+                    <button class="add-to-cart-btn" onclick="addToCart(12)">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </div>
-    
 
-    <script>
-        // Slideshow functionality
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex-1].style.display = "block";  
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 3000);
-        }
-
-        // Menu items database
-        const menuItems = {
-            1: { name: "Classic Espresso", price: 2.50, image: "../images/shop1.png" },
-            2: { name: "Cappuccino", price: 4.25, image: "../images/shop2.jpg" },
-            3: { name: "Caffe Latte", price: 4.50, image: "../images/shop3.jpg" },
-            4: { name: "Americano", price: 3.75, image: "../images/shop4.jpg" },
-            5: { name: "Club Sandwich", price: 6.50, image: "../images/shop1.png" },
-            6: { name: "College Burger", price: 8.75, image: "../images/shop2.jpg" },
-            7: { name: "Personal Pizza", price: 7.25, image: "../images/shop3.jpg" },
-            8: { name: "Fresh Garden Salad", price: 5.50, image: "../images/shop4.jpg" }
-        };
-
-        // Cart functionality
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = totalItems;
-        }
-
-        function changeQuantity(itemId, change) {
-            const qtyElement = document.getElementById(`qty-${itemId}`);
-            let currentQty = parseInt(qtyElement.textContent);
-            currentQty += change;
-            if (currentQty < 1) currentQty = 1;
-            qtyElement.textContent = currentQty;
-        }
-
-        function addToCart(itemId) {
-            const quantity = parseInt(document.getElementById(`qty-${itemId}`).textContent);
-            const item = menuItems[itemId];
-            
-            // Check if item already exists in cart
-            const existingItemIndex = cart.findIndex(cartItem => cartItem.id === itemId);
-            
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity += quantity;
-            } else {
-                cart.push({
-                    id: itemId,
-                    name: item.name,
-                    price: item.price,
-                    quantity: quantity,
-                    image: item.image
-                });
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            
-            // Show feedback
-            showAddToCartFeedback(item.name, quantity);
-            
-            // Reset quantity to 1
-            document.getElementById(`qty-${itemId}`).textContent = '1';
-        }
-
-        function showAddToCartFeedback(itemName, quantity) {
-            // Create a temporary notification
-            const notification = document.createElement('div');
-            notification.className = 'cart-notification';
-            notification.textContent = `Added ${quantity} ${itemName}(s) to cart!`;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
-
-        // Initialize cart count on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCartCount();
-            
-            // Mobile menu toggle
-            const menuIcon = document.querySelector('.menu-icon');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (menuIcon && navMenu) {
-                menuIcon.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!menuIcon.contains(event.target) && !navMenu.contains(event.target)) {
-                        navMenu.classList.remove('active');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>
